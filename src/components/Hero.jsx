@@ -6,31 +6,20 @@ function Hero() {
   const linesRef = useRef([]);
 
   useEffect(() => {
-    const hasAnimated = localStorage.getItem("heroAnimated");
+    gsap.set(linesRef.current, {
+      opacity: 0,
+      y: 40,
+    });
 
-    if (!hasAnimated) {
-      gsap.set(linesRef.current, {
-        opacity: 0,
-        y: 40,
-      });
-
-      gsap.to(linesRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: "power2.out",
-        delay: 0.2,
-      });
-
-      localStorage.setItem("heroAnimated", "true");
-    } else {
-      // If already animated, show final state instantly
-      gsap.set(linesRef.current, {
-        opacity: 1,
-        y: 0,
-      });
-    }
+    // Animate to final state
+    gsap.to(linesRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power2.out",
+      delay: 0.2,
+    });
   }, []);
 
   return (
@@ -38,7 +27,7 @@ function Hero() {
       {/* Background video */}
       <video
         className="hero-video"
-        src="src/assets/NEXEDGE.mission2.mp4" // ✅ use public folder
+        src="src/assets/NEXEDGE.mission2.mp4"
         autoPlay
         loop
         muted
