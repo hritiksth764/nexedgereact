@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+  padding: 1vw 3vw; /* top-bottom 1vw, left-right 3vw */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+.nav-left {
+  display: flex;
+  gap: 2vw;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1vw;
+  transition: color 0.2s ease;
+}
+
+.nav-left a:hover {
+  color: orangered;
+}
+
+.logo img {
+  height: 3vw;
+  width: auto;
+}
